@@ -1,0 +1,10 @@
+.env
+/node_modules
+/public
+/bower_components
+.idea
+.tmp
+.DS_Store
+npm-debug.log
+*.swp
+fis-conf.js
