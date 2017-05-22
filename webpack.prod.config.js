@@ -8,6 +8,7 @@ var WebpackMd5Hash = require('webpack-md5-hash');
 module.exports = {
     dev:'webpack-dev-server',
     // devtool: 'cheap-module-source-map',
+    devtool: 'source-map',
     entry: {
         main: './web/src/index',
         vendor: ["react", "react-dom", "react-router"]
@@ -16,6 +17,7 @@ module.exports = {
         //join and resolve diff
         path: path.join(__dirname,'/public/dist'),
         filename: '[name].[chunkhash].js',
+        sourceMapFilename: '[file].map',
         publicPath: '/dist/'
     },
     plugins: [
@@ -28,7 +30,8 @@ module.exports = {
                 warnings: false,
                 drop_debugger: true,
                 drop_console: true
-            }
+            },
+            sourceMap: true
         }),
         new WebpackMd5Hash(),
         new CleanPlugin(['public/dist', 'public/index.html']),
